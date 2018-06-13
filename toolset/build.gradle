@@ -27,9 +27,6 @@ dependencies {
     implementation rootProject.ext.dependencies.appcompatV7
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //日志打印
-    implementation 'com.blankj:alog:1.8.0'
-
     //Json数据解析库Gson
     api rootProject.ext.dependencies.gson
 }

@@ -11,10 +11,10 @@ import java.util.*
  * Created by DarkHorse on 2018/6/8.
  */
 object AppManager {
-    var isExit = false
-    var mTimer = Timer()
+    private var isExit = false
+    private var mTimer = Timer()
 
-    val mActivityStack: Stack<Activity> by lazy {
+    private val mActivityStack: Stack<Activity> by lazy {
         Stack<Activity>()
     }
 

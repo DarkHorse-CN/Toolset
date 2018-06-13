@@ -1,42 +1,31 @@
 package com.darkhorse.toolset.utils.extension
 
+import android.util.Log
 import android.widget.Toast
-import com.blankj.ALog
 import com.darkhorse.toolset.utils.AppManager
 
 fun toast(msg: String) {
     Toast.makeText(AppManager.currentActivity(), msg, Toast.LENGTH_SHORT).show()
 }
 
-fun a(msg: String) {
-    ALog.a(msg)
-}
-
 fun d(msg: String) {
-    ALog.d(msg)
+    Log.d(AppManager.currentActivity().javaClass.name, msg)
 }
 
 fun e(msg: String) {
-    ALog.e(msg)
+    Log.e(AppManager.currentActivity().javaClass.name, msg)
 }
 
 fun i(msg: String) {
-    ALog.i(msg)
+    Log.i(AppManager.currentActivity().javaClass.name, msg)
 }
 
 
 fun v(msg: String) {
-    ALog.v(msg)
+    Log.v(AppManager.currentActivity().javaClass.name, msg)
 }
 
 fun w(msg: String) {
-    ALog.w(msg)
+    Log.w(AppManager.currentActivity().javaClass.name, msg)
 }
 
-fun json(msg: String) {
-    ALog.json(msg)
-}
-
-fun xml(msg: String) {
-    ALog.xml(msg)
-}
