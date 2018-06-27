@@ -60,7 +60,6 @@ object PreferencesHelper {
      */
     operator fun get(key: String, defaultObject: Any?): Any? {
         if (defaultObject == null) {
-            Log.e("PreferencesHelper", "PreferenceUtils.get():第三个参数<defaultObject>不能为null ")
             return null
         }
 
@@ -95,7 +94,7 @@ object PreferencesHelper {
                 val json = mSharedPreferences.getString(key, "")
                 if ("" != json) {
                     val gson = Gson()
-                    return gson.fromJson<Any>(json, defaultObject.javaClass)
+                    return gson.fromJson<Any>(json, defaultObject::class.java)
                 }
             }
         } catch (e: UninitializedPropertyAccessException) {
@@ -126,7 +125,7 @@ object PreferencesHelper {
      * 获取SharedPreferences里所有的键值对
      * @return
      */
-    fun getAll(context: Context): Map<String, *> {
+    fun getAll(): Map<String, *>? {
         return mSharedPreferences.all
     }
 
@@ -136,10 +135,9 @@ object PreferencesHelper {
      * @param context
      * @param key
      */
-    fun remove(context: Context, key: String) {
+    fun remove(key: String) {
         val editor = mSharedPreferences.edit()
         editor.remove(key)
-        //        SharedPreferencesCompat.apply(editor);
         editor.apply()
     }
 
@@ -148,10 +146,9 @@ object PreferencesHelper {
      *
      * @param context
      */
-    fun clear(context: Context) {
+    fun clear() {
         val editor = mSharedPreferences.edit()
         editor.clear()
-        //        SharedPreferencesCompat.apply(editor);
         editor.apply()
     }
 }
